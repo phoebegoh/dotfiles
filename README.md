@@ -14,6 +14,8 @@ dotfiles config --local status.showUntrackedFiles no
    rsync --recursive --verbose --exclude '.git' dotfiles-tmp/ $HOME/
    rm --recursive $HOME/dotfiles-tmp
 ```
+## Notes about specific apps
+iterm2: Load preferences from custom folder or URL.
 
 # Usage
 ```dotfiles status
