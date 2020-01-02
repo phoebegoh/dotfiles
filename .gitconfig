@@ -1,0 +1,9 @@
+[user]
+	name = Phoebe Goh
+	email = phoebegoh@gmail.com
+[credential]
+	helper = osxkeychain
+[core]
+	excludesfile = /Users/phoebeg/.gitignore
+[color]
+	ui = auto
