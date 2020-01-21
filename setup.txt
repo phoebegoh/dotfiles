@@ -1,0 +1,73 @@
+# install brew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# set up cask
+brew tap caskroom/cask
+
+# Install mas for Apple store
+# Not great w/ corp?
+#brew install mas
+
+# Set up my ssh key
+ssh-keygen -t rsa
+
+# Install + configure git
+brew install git
+git.config --global color.ui auto
+git.config --golbal user.name "Phoebe Goh"
+git.config --global user.email "phoebegoh@gmail.com"
+
+# set up global .gitignore
+curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitignore
+git config --global core.excludesfile ~/.gitignore
+
+
+# Install Python
+brew install python3 pipenv
+
+# Set up terminal
+brew cask install iterm2
+# https://github.com/mbadolato/iTerm2-Color-Schemes
+
+#brew cask install macdown
+brew cask install alfred
+brew cask install slack
+#brew cask install bartender
+#brew cask install gifox
+brew cask install docker
+brew install terraform
+brew cask install minikube
+brew cask install visual-studio-code 
+brew cask install dropbox
+brew cask install whatsapp
+#brew cask install dash
+#brew cask install adobe-acrobat-reader
+#brew cask install atom
+brew install awscli
+brew install azure-cli
+brew install gcloud
+brew install pandoc
+brew install tmux
+# Clipboard manager
+brew cask install maccy
+brew install jq
+brew install watch
+
+
+# Install additional fonts
+brew tap caskroom/fonts
+brew cask install font-hack-nerd-font
+brew cask install font-source-code-pro
+brew install zsh-syntax-highlighting
+
+# nodejs
+#https://github.com/creationix/nvm
+brew install nvm
+nvm install node
+https://pawelgrzybek.com/install-nodejs-installer-vs-homebrew-vs-nvm/
+
+# Etcher for image creation
+brew cask install etcher
+
+# Brewfile
+https://thoughtbot.com/blog/brewfile-a-gemfile-but-for-homebrew
+
