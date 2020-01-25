@@ -1995,9 +1995,9 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 220 606 469 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>66 527 796 486 0 0 1680 1027 </string>
+	<string>66 449 1016 512 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>307 408 1010 502 0 0 1680 1027 </string>
+	<string>594 220 1010 502 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>420 372 1010 502 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -3207,11 +3207,11 @@
 			<key>Guid</key>
 			<string>68EC4344-0AE8-4A33-9E3B-4D814B1C4122</string>
 			<key>Has Hotkey</key>
-			<true/>
+			<false/>
 			<key>Horizontal Spacing</key>
 			<real>1</real>
 			<key>HotKey Activated By Modifier</key>
-			<true/>
+			<false/>
 			<key>HotKey Alternate Shortcuts</key>
 			<array/>
 			<key>HotKey Characters</key>

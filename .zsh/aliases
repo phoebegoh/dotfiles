@@ -1,0 +1,5 @@
+alias brewery='brew update && brew upgrade && brew cleanup && brew cask upgrade'
+alias tf='terraform'
+alias projects='cd ~/projects'
+alias g='git'
+alias gc='git commit'
