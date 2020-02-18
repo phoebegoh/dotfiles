@@ -20,6 +20,14 @@ git.config --global user.email "phoebegoh@gmail.com"
 curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitignore
 git config --global core.excludesfile ~/.gitignore
 
+# Install powershell and Azure modules
+brew cask install powershell
+# sudo pwsh
+# $env:PSModulePath
+# Save-Module -Name Az -Path /usr/local/microsoft/powershell/6/Modules
+# Install-Module -Name Az
+# Get-Module -ListAvailable
+
 
 # Install Python
 brew install python3 pipenv
