@@ -7,6 +7,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 # Set default shell
 chsh -s $(which zsh)
 
+brew install zsh-syntax-highlighting
+brew install zsh-autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Install mas for Apple store
 # Not great w/ corp?
