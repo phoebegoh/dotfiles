@@ -1,8 +1,9 @@
 # install brew
 #/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 # set up cask
-brew tap caskroom/cask
+#brew tap caskroom/cask
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # Install mas for Apple store
 # Not great w/ corp?
@@ -13,9 +14,9 @@ ssh-keygen -t rsa
 
 # Install + configure git
 brew install git
-git.config --global color.ui auto
-git.config --golbal user.name "Phoebe Goh"
-git.config --global user.email "phoebegoh@gmail.com"
+git config --global color.ui auto
+git config --global user.name "Phoebe Goh"
+git config --global user.email "phoebegoh@gmail.com"
 
 # set up global .gitignore
 curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitignore
