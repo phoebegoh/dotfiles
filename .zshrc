@@ -68,11 +68,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-<<<<<<< HEAD
 plugins=(git kubectl colorize pip python brew osx)
-=======
-plugins=(git kubectl colorize)
->>>>>>> 0284900224e0e3bcdc38f2c6f3c7945d698ffdad
 
 source $ZSH/oh-my-zsh.sh
 
@@ -113,6 +109,9 @@ if [ -f ~/.zsh/aliases ]; then
 else
     print "404: ~/.zsh/aliases not found."
 fi
+
+# Run git commands in dotfiles directory $HOME/.dotfiles
+alias dotfiles='/usr/local/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
