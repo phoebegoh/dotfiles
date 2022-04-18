@@ -1,4 +1,4 @@
-alias brewery='brew update && brew upgrade && brew cleanup && brew cask upgrade'
+alias brewery='brew update && brew upgrade && brew cleanup && brew upgrade --cask'
 alias tf='terraform'
 alias projects='cd ~/projects'
 alias g='git'
