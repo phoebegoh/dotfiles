@@ -1,36 +1,92 @@
 # install brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+#echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/phoebe/.zprofile
+#eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Install zsh and oh-my-zsh
+# Install zsh
 brew install zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 # Set default shell
 chsh -s $(which zsh)
 
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# ZSH plugins
 brew install zsh-syntax-highlighting
 brew install zsh-autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Add the following lines to .zshrc
+#source $(brew --prefix)/share/zsh-autosuggestions/zsh-syntax-highlighting.zsh
+#source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
+# Additional fonts
+brew tap homebrew/cask-fonts
+
+# Install additional fonts
+brew tap homebrew/cask-fonts
+#brew install font-source-code-pro
+brew install font-fira-code
+#brew install font-hack-nerd-font
+#brew install font-cascadia-code
+
+# Set up terminal
+brew install --cask iterm2
+# https://github.com/mbadolato/iTerm2-Color-Schemes
+
+
+# Starship prompt
+#need a nerd font installed
+brew install starship
+echo 'eval "$(starship init zsh)"' >> /Users/phoebe/.zshrc
+#eval "$(starship init zsh)"
 
 # Install mas for Apple store
-# Not great w/ corp?
-#brew install mas
+brew install mas
+
+## mas installations
+ 
+#craft docs
+mas install 1487937127 
+
+#goodnotes
+#mas install 1444383602
+
+#todoist
+mas install 585829637
+
+# dato
+#mas install 1470584107
+
+# Mindnode
+mas install 1289197285
+
+# install manually
+#elgato software - control cneter, wave xlr, stream deck
+#logi capture - no mac version
+#canva for mac
+
 
 # Set up my ssh key
-ssh-keygen -t rsa
+ssh-keygen -t rsa -C "phoebegoh@gmail.com"
+ssh-add --apple-use-keychain ~/.ssh/id_rsa
 
 # Install + configure git
 brew install git
 git config --global color.ui auto
 git config --global user.name "Phoebe Goh"
 git config --global user.email "phoebegoh@gmail.com"
+# Git credential manager: https://github.com/GitCredentialManager/git-credential-manager
+brew tap microsoft/git
+brew install --cask git-credential-manager-core
 
 # set up global .gitignore
-curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitignore
+cd ~
+curl https://raw.githubusercontent.com/github/gitignore/master/Global/macOS.gitignore -o ~/.gitignore
 git config --global core.excludesfile ~/.gitignore
 
 # Install powershell and Azure modules
-brew cask install powershell
+#brew install --cask powershell
 # sudo pwsh
 # $env:PSModulePath
 # Save-Module -Name Az -Path /usr/local/microsoft/powershell/6/Modules
@@ -45,15 +101,24 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 # Update vimrc
 cd ~/.vim_runtime && git pull --rebase && cd -
 
-# Install Python
-brew install python3 pipenv
+# Maximum awesome (if needed)
+#git clone https://github.com/square/maximum-awesome.git
+#cd maximum-awesome
+#rake
 
-# Set up terminal
-brew cask install iterm2
-# https://github.com/mbadolato/iTerm2-Color-Schemes
+# Install Python
+brew install python3
+python3 -m pip install --upgrade pip
+
+brew install pyenv
+#pyenv install 3.10.6
+# add pyenv init to your shell to enable shims and autocomplete
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+exec $SHELL
+
 
 # Set up QuickLook
-brew cask install \
+#brew install --cask \
     qlcolorcode \
     qlstephen \
     qlmarkdown \
@@ -64,44 +129,81 @@ brew cask install \
     webpquicklook \
     suspicious-package
 
-brew cask install visual-studio-code 
-brew install tmux
-brew cask install maccy # Clipboard manager
-brew install jq
-brew cask install google-chrome
-brew cask install firefox
-brew cask install docker
-brew install terraform
-brew cask install minikube
-brew install awscli
-brew install azure-cli
-brew install gcloud
-brew install pandoc
-brew install watch
+brew install --cask visual-studio-code
+# enable settings sync
+# install extension vscode-icons
+# live server: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+# Edit settings: editor.fontLigatures and set it to true under the editor.fontFamily.
 
-#brew cask install slack
-#brew cask install macdown
-#brew cask install alfred
-#brew cask install bartender
-#brew cask install gifox
-#brew cask install dropbox
-#brew cask install whatsapp
-#brew cask install dash
-#brew cask install adobe-acrobat-reader
-#brew cask install atom
+# Install Docker on Mac without Docker Desktop
+brew install docker docker-compose
+#Compose is now a Docker plugin. For Docker to find this plugin, symlink it:
+  mkdir -p ~/.docker/cli-plugins
+  ln -sfn /opt/homebrew/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose
+
+# Download and install latest version of Rancher Desktop
+# readmes: https://docs.rancherdesktop.io/how-to-guides/create-multi-node-cluster
+https://github.com/rancher-sandbox/rancher-desktop/releases
+sudo mkdir /usr/local/bin
+sudo chown $USER /usr/local/bin
+
+# install k3d
+# curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+
+# Other useful apps
+Brew install --cask karabiner-elements
+brew install --cask hiddenbar
+brew install --cask scroll-reverser
+brew install --cask clocker
+brew install --cask descript
+brew install --cask discord
+brew install --cask zoom
+brew install --cask telegram
+brew install --cask signal
+# https://www.beekeeperstudio.io
+# brew install --cask beekeeper-studio
+#brew install tmux
+#brew install --cask maccy # Clipboard manager
+#brew install jq
+#brew install --cask firefox
+#brew install terraform
+#brew install --cask minikube
+#brew install awscli
+#brew install azure-cli
+#brew install gcloud
+#brew install pandoc
+#brew install watch
+#brew install --cask slack
+#brew install --cask macdown
+#brew install --cask alfred
+#brew install --cask bartender
+#brew install --cask gifox
+#brew install --cask dropbox
+#brew install --cask whatsapp
+#brew install --cask dash
 # Etcher for image creation
-brew cask install etcher
-
-# Install additional fonts
-# brew tap caskroom/fonts
-brew tap homebrew/cask-fonts
-brew cask install font-hack-nerd-font
-brew cask install font-source-code-pro
-brew install zsh-syntax-highlighting
+#brew install --cask etcher
 
 # nodejs
 #https://github.com/creationix/nvm
-brew install nvm
-nvm install node
+#brew install nvm
+#nvm install node
 #https://pawelgrzybek.com/install-nodejs-installer-vs-homebrew-vs-nvm/
+brew install node
+# add /usr/local/opt/node@16/bin to path
 
+# EU keyboard modifications\
+# Download org.custom.keyboard-remap.plist from git
+# This will run the following:
+#hidutil property --set '{"UserKeyMapping":
+#    [{"HIDKeyboardModifierMappingSrc":0x700000064,
+#      "HIDKeyboardModifierMappingDst":0x700000035}]
+#}'
+# To run on boot
+# sudo launchctl load -w /Library/LaunchDaemons/org.custom.keyboard-remap.plist
+# See: https://www.grzegorowski.com/how-to-remap-single-mac-keyboard-key
+
+
+# Logitech camera controller on m1
+brew tap homebrew/cask-drivers
+brew install --cask cameracontroller
