@@ -12,9 +12,9 @@ dotfiles config --local status.showUntrackedFiles no
 
 # Restore
 ```
-   git clone --separate-git-dir=$HOME/.dotfiles https://github.com/phoebegoh/dotfiles.git $HOME/dotfiles-tmp
-   rsync --recursive --verbose --exclude '.git' dotfiles-tmp/ $HOME/
-   rm --recursive $HOME/dotfiles-tmp
+git clone --separate-git-dir=$HOME/.dotfiles https://github.com/phoebegoh/dotfiles.git $HOME/dotfiles-tmp
+rsync --recursive --verbose --exclude '.git' $HOME/dotfiles-tmp/ $HOME/
+rm -r $HOME/dotfiles-tmp
 ```
 ## Notes about specific apps
 iterm2: Load preferences from custom folder or URL.
